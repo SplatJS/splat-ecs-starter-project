@@ -9,6 +9,22 @@
     "y": 100
    },
    "size": {
+    "width": 50,
+    "height": 98
+   },
+   "velocity": {
+    "x": 0,
+    "y": 0
+   }
+  },
+  {
+   "id": 1,
+   "name": "enemy",
+   "position": {
+    "x": 400,
+    "y": 200
+   },
+   "size": {
     "width": 100,
     "height": 100
    },

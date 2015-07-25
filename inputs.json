@@ -50,5 +50,14 @@
     "key": "right"
    }
   ]
+ },
+ "jump": {
+  "type": "button",
+  "inputs": [
+   {
+    "device": "keyboard",
+    "key": "space"
+   }
+  ]
  }
 }
