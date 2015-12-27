@@ -1,7 +1,6 @@
 {
- "up": {
-  "type": "button",
-  "inputs": [
+ "buttons": {
+  "up": [
    {
     "device": "keyboard",
     "key": "w"
@@ -10,11 +9,8 @@
     "device": "keyboard",
     "key": "up"
    }
-  ]
- },
- "down": {
-  "type": "button",
-  "inputs": [
+  ],
+  "down": [
    {
     "device": "keyboard",
     "key": "s"
@@ -23,11 +19,8 @@
     "device": "keyboard",
     "key": "down"
    }
-  ]
- },
- "left": {
-  "type": "button",
-  "inputs": [
+  ],
+  "left": [
    {
     "device": "keyboard",
     "key": "a"
@@ -36,11 +29,8 @@
     "device": "keyboard",
     "key": "left"
    }
-  ]
- },
- "right": {
-  "type": "button",
-  "inputs": [
+  ],
+  "right": [
    {
     "device": "keyboard",
     "key": "d"
