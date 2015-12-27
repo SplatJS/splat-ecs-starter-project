@@ -13,13 +13,25 @@
    ]
   },
   {
-   "name": "./systems/simulation/control-player",
+   "name": "splatjs:controlPlayer",
+   "scenes": [
+    "main"
+   ]
+  },
+  {
+   "name": "splatjs:applyMovement2d",
    "scenes": [
     "main"
    ]
   },
   {
    "name": "splatjs:applyVelocity",
+   "scenes": [
+    "main"
+   ]
+  },
+  {
+   "name": "splatjs:applyFriction",
    "scenes": [
     "main"
    ]
@@ -32,6 +44,12 @@
   },
   {
    "name": "splatjs:boxCollider",
+   "scenes": [
+    "main"
+   ]
+  },
+  {
+   "name": "./systems/simulation/sample-simulation-system",
    "scenes": [
     "main"
    ]
@@ -51,7 +69,7 @@
    ]
   },
   {
-   "name": "./systems/renderer/render-player",
+   "name": "./systems/renderer/sample-renderer-system",
    "scenes": [
     "main"
    ]
@@ -63,7 +81,19 @@
    ]
   },
   {
+   "name": "splatjs:drawRectangles",
+   "scenes": [
+    "main"
+   ]
+  },
+  {
    "name": "splatjs:viewport.reset",
+   "scenes": [
+    "main"
+   ]
+  },
+  {
+   "name": "splatjs:drawFrameRate",
    "scenes": [
     "main"
    ]
