@@ -8,10 +8,7 @@
     "x": 0,
     "y": 0
    },
-   "size": {
-    "width": 640,
-    "height": 480
-   }
+   "matchCanvasSize": true
   },
   {
    "id": 1,
