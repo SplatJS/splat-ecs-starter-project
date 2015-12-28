@@ -12,9 +12,17 @@ function srcPath(gamePath) {
 	return "." + path.sep + path.join("src", gamePath);
 }
 
-var scripts = require("./src/data/scripts");
-scripts.forEach(function(script) {
-	b.require(srcPath(script), { expose: script });
+function endsWith(str, suffix) {
+	return str.substr(str.length - suffix.length) === suffix;
+}
+function removeSuffix(str, suffix) {
+	return str.substr(0, str.length - suffix.length);
+}
+
+fs.readdirSync("src/scripts").forEach(function(script) {
+	if (endsWith(script, ".js")) {
+		b.require("./src/scripts/" + script, { expose: "./scripts/" + removeSuffix(script, ".js") });
+	}
 });
 
 var systems = require("./src/data/systems");
