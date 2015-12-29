@@ -20,19 +20,36 @@ sounds.loadFromManifest(require("./data/sounds"));
 
 var systems = require("./data/systems");
 
-// This is some webpack magic to ensure the systems from splat are included in the bundle
+// This is some webpack magic to ensure the dynamically required scripts are loaded
+
 var splatSystemPath = "splat-ecs/lib/systems";
 // WARNING: can't use splatSystemPath variable here, or webpack won't pick it up
-var systemRequire = require.context("splat-ecs/lib/systems", true, /\.js$/);
-function requireSystem(path) {
+var splatSystemRequire = require.context("splat-ecs/lib/systems", true, /\.js$/);
+
+var localSystemPath = "./systems";
+var localSystemRequire = require.context("./systems", true, /\.js$/);
+
+var localScriptPath = "./scripts";
+var localScriptRequire = require.context("./scripts", true, /\.js$/);
+
+function customRequire(path) {
 	if (path.indexOf(splatSystemPath) === 0) {
-		var name = "./" + path.substr(splatSystemPath.length + 1) + ".js";
-		return systemRequire(name);
+		var splatName = "./" + path.substr(splatSystemPath.length + 1) + ".js";
+		return splatSystemRequire(splatName);
 	}
-	return require(path);
+	if (path.indexOf(localSystemPath) === 0) {
+		var localName = "./" + path.substr(localSystemPath.length + 1) + ".js";
+		return localSystemRequire(localName);
+	}
+	if (path.indexOf(localScriptPath) === 0) {
+		var scriptName = "./" + path.substr(localScriptPath.length + 1) + ".js";
+		return localScriptRequire(scriptName);
+	}
+	console.error("Unable to load module: \"", path, "\"");
+	return undefined;
 }
 
-var game = new Splat.Game(canvas, animations, entities, images, input, requireSystem, scenes, sounds, systems);
+var game = new Splat.Game(canvas, animations, entities, images, input, customRequire, scenes, sounds, systems);
 
 function percentLoaded() {
 	if (images.totalImages + sounds.totalSounds === 0) {
