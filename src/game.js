@@ -20,7 +20,19 @@ sounds.loadFromManifest(require("./data/sounds"));
 
 var systems = require("./data/systems");
 
-var game = new Splat.Game(canvas, animations, entities, images, input, require, scenes, sounds, systems);
+// This is some webpack magic to ensure the systems from splat are included in the bundle
+var splatSystemPath = "splat-ecs/lib/systems";
+// WARNING: can't use splatSystemPath variable here, or webpack won't pick it up
+var systemRequire = require.context("splat-ecs/lib/systems", true, /\.js$/);
+function requireSystem(path) {
+	if (path.indexOf(splatSystemPath) === 0) {
+		var name = "./" + path.substr(splatSystemPath.length + 1) + ".js";
+		return systemRequire(name);
+	}
+	return require(path);
+}
+
+var game = new Splat.Game(canvas, animations, entities, images, input, requireSystem, scenes, sounds, systems);
 
 function percentLoaded() {
 	if (images.totalImages + sounds.totalSounds === 0) {
