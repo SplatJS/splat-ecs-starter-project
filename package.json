@@ -8,6 +8,7 @@
     "build": "webpack",
     "clean": "rimraf build",
     "lint": "eslint .",
+    "start": "webpack-dev-server --hot --inline --content-base build --port 4000",
     "watch": "webpack --watch"
   },
   "repository": {
@@ -28,7 +29,8 @@
     "image-webpack-loader": "^1.6.2",
     "json-loader": "^0.5.4",
     "rimraf": "^2.4.4",
-    "webpack": "^1.12.9"
+    "webpack": "^1.12.9",
+    "webpack-dev-server": "^1.14.0"
   },
   "dependencies": {
     "splat-ecs": "1.0.0"
