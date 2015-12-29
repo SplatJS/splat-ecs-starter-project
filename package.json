@@ -3,11 +3,12 @@
   "version": "0.0.0",
   "description": "A Sample game",
   "private": true,
-  "main": "index.js",
+  "main": "src/game.js",
   "scripts": {
     "build": "webpack",
     "clean": "rimraf build",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "watch": "webpack --watch"
   },
   "repository": {
     "type": "git",
