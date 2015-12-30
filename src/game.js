@@ -51,7 +51,6 @@ function customRequire(path) {
 require("./index.html");
 require.context("./images", true, /\.(jpe?g|png|gif|svg)$/i);
 require.context("./sounds", true, /\.(mp3|ogg|wav)$/i);
-var prefabs = require("./data/prefabs");
 
 var prefabs = require("./data/prefabs");
 
