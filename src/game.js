@@ -52,7 +52,9 @@ require("./index.html");
 require.context("./images", true, /\.(jpe?g|png|gif|svg)$/i);
 require.context("./sounds", true, /\.(mp3|ogg|wav)$/i);
 
-var game = new Splat.Game(canvas, animations, entities, images, input, customRequire, scenes, sounds, systems);
+var prefabs = require("./data/prefabs");
+
+var game = new Splat.Game(canvas, animations, entities, images, input, customRequire, scenes, sounds, systems, prefabs);
 
 function percentLoaded() {
 	if (images.totalImages + sounds.totalSounds === 0) {
