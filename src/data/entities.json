@@ -3,7 +3,7 @@
   {
    "id": 0,
    "name": "camera",
-   "camera": "true",
+   "camera": true,
    "position": {
     "x": 0,
     "y": 0
