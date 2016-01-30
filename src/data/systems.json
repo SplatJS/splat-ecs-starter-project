@@ -99,7 +99,7 @@
    ]
   },
   {
-   "name": "splat-ecs/lib/systems/draw-frame-rate",
+   "name": "./systems/renderer/log-frame-rate",
    "scenes": [
     "main"
    ]

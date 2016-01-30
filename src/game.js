@@ -14,7 +14,7 @@ function customRequire(path) {
 		var splatName = "./" + path.substr(splatSystemPath.length + 1) + ".js";
 		return splatSystemRequire(splatName);
 	}
-	var extensions = [".js", ".json", ".glsl"];
+	var extensions = [".js", ".json", ".glsl", ".vs", ".fs"];
 	var name = path;
 	while (localRequire.keys().indexOf(name) === -1) {
 		if (extensions.length === 0) {
