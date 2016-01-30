@@ -1,0 +1,33 @@
+{
+	"shaders": [
+		{
+			"path": "./shaders/fragment.glsl",
+			"type": "FRAGMENT_SHADER",
+			"scenes": [
+				"main",
+				"title",
+				"day-intro",
+				"ending"
+			]
+		},
+		{
+			"path": "./shaders/vertex.glsl",
+			"type": "VERTEX_SHADER",
+			"scenes": [
+				"main",
+				"title",
+				"day-intro",
+				"ending"
+			]
+		}
+	],
+	"vertexAttribArrays": {
+		"vertexPositionAttribute": "aVertexPosition",
+		"textureCoordAttribute": "aTextureCoord"
+	},
+	"uniformVars": {
+		"pMatrixUniform": "uPMatrix",
+		"mvMatrixUniform": "uMVMatrix",
+		"samplerUniform": "uSampler"
+	}
+}

@@ -5,6 +5,9 @@ var environment = process.env["NODE_ENV"] || "development";
 
 module.exports = {
 	entry: "./src/game",
+	glsl: {
+		chunkPath: __dirname + "/src/shaders/chunks"
+	},
 	output: {
 		path: __dirname + "/build",
 		filename: "index.js"
@@ -23,13 +26,21 @@ module.exports = {
 				]
 			},
 			{
+				test: /src\/textures\/.*\.(jpe?g|png|gif|svg)$/i,
+				loaders: [
+					"file?hash=sha512&digest=hex&name=textures/[name].[ext]",
+					"image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false"
+				]
+			},
+			{
 				test: /src\/sounds\/.*\.(mp3|ogg|wav)$/i,
 				loader: "file?hash=sha512&digest=hex&name=sounds/[name].[ext]"
 			},
 			{
 				test: /src\/index.html$/i,
 				loader: "file?hash=sha512&digest=hex&name=[name].[ext]"
-			}
+			},
+			{ test: /\.(glsl|vs|fs)$/, loader: "shader" }
 		]
 	},
 	plugins: [
