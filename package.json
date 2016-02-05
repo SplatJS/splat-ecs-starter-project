@@ -33,6 +33,6 @@
     "webpack-dev-server": "^1.14.0"
   },
   "dependencies": {
-    "splat-ecs": "3.0.2"
+    "splat-ecs": "3.2.0"
   }
 }
