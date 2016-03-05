@@ -19,11 +19,11 @@ var localScriptPath = "./scripts";
 var localScriptRequire = require.context("./scripts", true, /\.js$/);
 
 function generateManifest(files, folder) {
-	return files.reduce(function(manifest, file) {
-		var basename = file.substr(2);
-		manifest[basename] = folder + "/" + basename;
-		return manifest;
-	}, {});
+  return files.reduce(function(manifest, file) {
+    var basename = file.substr(2);
+    manifest[basename] = folder + "/" + basename;
+    return manifest;
+  }, {});
 }
 
 var imageContext = require.context("./images", true, /\.(jpe?g|png|gif|svg)$/i);
@@ -36,39 +36,39 @@ var localDataPath = "./data";
 var localDataRequire = require.context("./data", true, /\.json$/);
 
 function customRequire(path) {
-	if (path.indexOf(splatSystemPath) === 0) {
-		var splatName = "./" + path.substr(splatSystemPath.length + 1) + ".js";
-		return splatSystemRequire(splatName);
-	}
-	if (path.indexOf(localSystemPath) === 0) {
-		var localName = "./" + path.substr(localSystemPath.length + 1) + ".js";
-		return localSystemRequire(localName);
-	}
-	if (path.indexOf(localScriptPath) === 0) {
-		var scriptName = "./" + path.substr(localScriptPath.length + 1) + ".js";
-		return localScriptRequire(scriptName);
-	}
-	if (path === "./data/images") {
-		return imageManifest;
-	}
-	if (path === "./data/sounds") {
-		return soundManifest;
-	}
-	if (path.indexOf(localDataPath) === 0) {
-		var dataName = "./" + path.substr(localDataPath.length + 1) + ".json";
-		return localDataRequire(dataName);
-	}
-	console.error("Unable to load module: \"", path, "\"");
-	return undefined;
+  if (path.indexOf(splatSystemPath) === 0) {
+    var splatName = "./" + path.substr(splatSystemPath.length + 1) + ".js";
+    return splatSystemRequire(splatName);
+  }
+  if (path.indexOf(localSystemPath) === 0) {
+    var localName = "./" + path.substr(localSystemPath.length + 1) + ".js";
+    return localSystemRequire(localName);
+  }
+  if (path.indexOf(localScriptPath) === 0) {
+    var scriptName = "./" + path.substr(localScriptPath.length + 1) + ".js";
+    return localScriptRequire(scriptName);
+  }
+  if (path === "./data/images") {
+    return imageManifest;
+  }
+  if (path === "./data/sounds") {
+    return soundManifest;
+  }
+  if (path.indexOf(localDataPath) === 0) {
+    var dataName = "./" + path.substr(localDataPath.length + 1) + ".json";
+    return localDataRequire(dataName);
+  }
+  console.error("Unable to load module: \"", path, "\"");
+  return undefined;
 }
 
 var game = new Splat.Game(canvas, customRequire);
 
 function percentLoaded() {
-	if (game.images.totalImages + game.sounds.totalSounds === 0) {
-		return 1;
-	}
-	return (game.images.loadedImages + game.sounds.loadedSounds) / (game.images.totalImages + game.sounds.totalSounds);
+  if (game.images.totalImages + game.sounds.totalSounds === 0) {
+    return 1;
+  }
+  return (game.images.loadedImages + game.sounds.loadedSounds) / (game.images.totalImages + game.sounds.totalSounds);
 }
 var loading = Splat.loadingScene(canvas, percentLoaded, game.scene);
 loading.start(context);
