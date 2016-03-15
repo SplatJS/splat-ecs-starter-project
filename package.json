@@ -7,6 +7,7 @@
   "scripts": {
     "build": "webpack",
     "clean": "rimraf build",
+    "electron": "webpack && node electron.js",
     "lint": "eslint .",
     "start": "webpack-dev-server --hot --inline --content-base build --port 4000",
     "watch": "webpack --watch"
@@ -23,17 +24,19 @@
   },
   "homepage": "https://github.com/SplatJS/splat-ecs-starter-project",
   "devDependencies": {
+    "electron-packager": "^5.2.1",
     "eslint": "^1.10.1",
     "eslint-loader": "^1.1.1",
     "eslint-plugin-json": "^1.2.0",
     "file-loader": "^0.8.5",
     "image-webpack-loader": "^1.6.2",
     "json-loader": "^0.5.4",
+    "ncp": "^2.0.0",
     "rimraf": "^2.4.4",
     "webpack": "^1.12.9",
     "webpack-dev-server": "^1.14.0"
   },
   "dependencies": {
-    "splat-ecs": "5.0.0"
+    "splat-ecs": "5.1.0"
   }
 }
