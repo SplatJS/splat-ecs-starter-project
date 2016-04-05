@@ -23,6 +23,10 @@ module.exports = {
         ]
       },
       {
+        test: /src\/fonts\/.*\.(eot|svg|ttf|woff2?)$/i,
+        loader: "file?hash=sha512&digest=hex&name=fonts/[name].[ext]"
+      },
+      {
         test: /src\/sounds\/.*\.(mp3|ogg|wav)$/i,
         loader: "file?hash=sha512&digest=hex&name=sounds/[name].[ext]"
       },
