@@ -2,107 +2,81 @@
  "simulation": [
   {
    "name": "splat-ecs/lib/systems/match-canvas-size",
-   "scenes": [
-    "main"
-   ]
+   "scenes": "all"
   },
   {
    "name": "splat-ecs/lib/systems/advance-timers",
-   "scenes": [
-    "main"
-   ]
+   "scenes": "all"
   },
   {
    "name": "splat-ecs/lib/systems/advance-animations",
-   "scenes": [
-    "main"
-   ]
+   "scenes": "all"
   },
   {
    "name": "splat-ecs/lib/systems/control-player",
-   "scenes": [
-    "main"
-   ]
+   "scenes": "all"
   },
   {
    "name": "splat-ecs/lib/systems/apply-movement-2d",
-   "scenes": [
-    "main"
-   ]
+   "scenes": "all"
   },
   {
    "name": "splat-ecs/lib/systems/apply-velocity",
-   "scenes": [
-    "main"
-   ]
+   "scenes": "all"
   },
   {
    "name": "splat-ecs/lib/systems/apply-friction",
-   "scenes": [
-    "main"
-   ]
+   "scenes": "all"
   },
   {
    "name": "splat-ecs/lib/systems/follow-parent",
-   "scenes": [
-    "main"
-   ]
+   "scenes": "all"
   },
   {
    "name": "splat-ecs/lib/systems/box-collider",
-   "scenes": [
-    "main"
-   ]
+   "scenes": "all"
   },
   {
    "name": "./systems/simulation/sample-simulation-system",
-   "scenes": [
-    "main"
-   ]
+   "scenes": "all"
   }
  ],
  "renderer": [
   {
+   "name": "splat-ecs/lib/systems/apply-shake",
+   "scenes": "all"
+  },
+  {
    "name": "splat-ecs/lib/systems/clear-screen",
-   "scenes": [
-    "main"
-   ]
+   "scenes": "all"
   },
   {
    "name": "splat-ecs/lib/systems/viewport-move-to-camera",
-   "scenes": [
-    "main"
-   ]
+   "scenes": "all"
   },
   {
    "name": "./systems/renderer/sample-renderer-system",
-   "scenes": [
-    "main"
-   ]
+   "scenes": "all"
   },
   {
    "name": "splat-ecs/lib/systems/draw-image",
-   "scenes": [
-    "main"
-   ]
+   "scenes": "all"
   },
   {
    "name": "splat-ecs/lib/systems/draw-rectangles",
-   "scenes": [
-    "main"
-   ]
+   "scenes": "all"
   },
   {
    "name": "splat-ecs/lib/systems/viewport-reset",
-   "scenes": [
-    "main"
-   ]
+   "scenes": "all"
   },
   {
    "name": "splat-ecs/lib/systems/draw-frame-rate",
-   "scenes": [
-    "main"
-   ]
+   "scenes": "all"
+  },
+  {
+   "name": "splat-ecs/lib/systems/revert-shake",
+   "scenes": "all"
   }
  ]
 }
