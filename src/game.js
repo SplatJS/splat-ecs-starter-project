@@ -6,6 +6,7 @@ var context = canvas.getContext("2d");
 var Splat = require("splat-ecs");
 require("./index.html");
 
+
 // This is some webpack magic to ensure the dynamically required scripts are loaded
 
 var splatSystemPath = "splat-ecs/lib/systems";
@@ -25,6 +26,8 @@ function generateManifest(files, folder) {
     return manifest;
   }, {});
 }
+
+require.context("./fonts", true, /.*\.(eot|svg|ttf|woff2?)$/i);
 
 var imageContext = require.context("./images", true, /\.(jpe?g|png|gif|svg)$/i);
 var imageManifest = generateManifest(imageContext.keys(), "images");
