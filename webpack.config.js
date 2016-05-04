@@ -12,7 +12,6 @@ var imageRegExp = new RegExp(imagePath + ".*\.(jpe?g|png|gif|svg)$", "i");
 
 var htmlPath = pathForRegexp('src/');
 var htmlRegExp = new RegExp(htmlPath + ".*\.html", "i");
-console.log(htmlRegExp);
 
 function escapeForRegExp(s) {
     return s.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
