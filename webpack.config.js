@@ -4,17 +4,17 @@ var path = require("path");
 /* eslint-disable no-undef */
 var environment = process.env["NODE_ENV"] || "development";
 
-var soundPath = pathForRegexp('src/sounds');
+var soundPath = pathForRegexp("src/sounds");
 var soundRegExp = new RegExp(soundPath + ".*\.(mp3|ogg|wav)$", "i");
 
-var imagePath = pathForRegexp('src/images');
+var imagePath = pathForRegexp("src/images");
 var imageRegExp = new RegExp(imagePath + ".*\.(jpe?g|png|gif|svg)$", "i");
 
-var htmlPath = pathForRegexp('src/');
+var htmlPath = pathForRegexp("src/");
 var htmlRegExp = new RegExp(htmlPath + ".*\.html", "i");
 
 function escapeForRegExp(s) {
-    return s.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
+  return s.replace(/[-\/\\^$*+?.()|[\]{}]/g, "\\$&");
 }
 
 function pathForRegexp(url) {
