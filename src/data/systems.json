@@ -13,6 +13,10 @@
    "scenes": "all"
   },
   {
+   "name": "splat-ecs/lib/systems/set-virtual-buttons",
+   "scenes": "all"
+  },
+  {
    "name": "splat-ecs/lib/systems/control-player",
    "scenes": "all"
   },
