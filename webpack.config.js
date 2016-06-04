@@ -10,6 +10,9 @@ var soundRegExp = new RegExp(soundPath + ".*\.(mp3|ogg|wav)$", "i");
 var imagePath = pathForRegexp("src/images");
 var imageRegExp = new RegExp(imagePath + ".*\.(jpe?g|png|gif|svg)$", "i");
 
+var fontPath = pathForRegexp("src/fonts");
+var fontRegExp = new RegExp(fontPath + ".*\.(eot|svg|ttf|woff2?)$", "i");
+
 var htmlPath = pathForRegexp("src/");
 var htmlRegExp = new RegExp(htmlPath + ".*\.html", "i");
 
@@ -33,18 +36,22 @@ module.exports = {
       { test: /\.(js|json)$/, exclude: /node_modules/, loader: "eslint-loader" },
       {
         test: soundRegExp,
-        loader: "file?hash=sha512&digest=hex&name=sounds/[name].[ext]"
+        loader: "file?hash=sha512&digest=hex&name=[path][name].[ext]&context=src"
       },
       {
         test: imageRegExp,
         loaders: [
-          "file?hash=sha512&digest=hex&name=images/[name].[ext]"
+          "file?hash=sha512&digest=hex&name=[path][name].[ext]&context=src"
           //"image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false"
         ]
       },
       {
+        test: fontRegExp,
+        loader: "file?hash=sha512&digest=hex&name=[path][name].[ext]&context=src"
+      },
+      {
         test: htmlRegExp,
-        loader: "file?hash=sha512&digest=hex&name=[name].[ext]"
+        loader: "file?hash=sha512&digest=hex&name=[path][name].[ext]&context=src"
       }
     ],
     loaders: [
