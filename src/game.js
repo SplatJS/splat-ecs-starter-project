@@ -1,7 +1,6 @@
 "use strict";
 
 var canvas = document.getElementById("canvas");
-var context = canvas.getContext("2d");
 
 var Splat = require("splat-ecs");
 require("./index.html");
@@ -65,13 +64,5 @@ function customRequire(path) {
   return undefined;
 }
 
-var game = new Splat.Game(canvas, customRequire);
-
-function percentLoaded() {
-  if (game.images.totalImages + game.sounds.totalSounds === 0) {
-    return 1;
-  }
-  return (game.images.loadedImages + game.sounds.loadedSounds) / (game.images.totalImages + game.sounds.totalSounds);
-}
-var loading = Splat.loadingScene(game, percentLoaded, game.scene);
-loading.start(context);
+window.game = new Splat.Game(canvas, customRequire);
+window.game.start();

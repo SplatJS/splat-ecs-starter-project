@@ -5,47 +5,47 @@
    "scenes": "all"
   },
   {
-   "name": "splat-ecs/lib/systems/match-canvas-size",
+   "name": "splat-ecs/lib/systems/simulation/match-canvas-size",
    "scenes": "all"
   },
   {
-   "name": "splat-ecs/lib/systems/advance-timers",
+   "name": "splat-ecs/lib/systems/simulation/advance-timers",
    "scenes": "all"
   },
   {
-   "name": "splat-ecs/lib/systems/advance-animations",
+   "name": "splat-ecs/lib/systems/simulation/advance-animations",
    "scenes": "all"
   },
   {
-   "name": "splat-ecs/lib/systems/apply-easing",
+   "name": "splat-ecs/lib/systems/simulation/apply-easing",
    "scenes": "all"
   },
   {
-   "name": "splat-ecs/lib/systems/set-virtual-buttons",
+   "name": "splat-ecs/lib/systems/simulation/set-virtual-buttons",
    "scenes": "all"
   },
   {
-   "name": "splat-ecs/lib/systems/control-player",
+   "name": "splat-ecs/lib/systems/simulation/control-player",
    "scenes": "all"
   },
   {
-   "name": "splat-ecs/lib/systems/apply-movement-2d",
+   "name": "splat-ecs/lib/systems/simulation/apply-movement-2d",
    "scenes": "all"
   },
   {
-   "name": "splat-ecs/lib/systems/apply-velocity",
+   "name": "splat-ecs/lib/systems/simulation/apply-velocity",
    "scenes": "all"
   },
   {
-   "name": "splat-ecs/lib/systems/apply-friction",
+   "name": "splat-ecs/lib/systems/simulation/apply-friction",
    "scenes": "all"
   },
   {
-   "name": "splat-ecs/lib/systems/follow-parent",
+   "name": "splat-ecs/lib/systems/simulation/follow-parent",
    "scenes": "all"
   },
   {
-   "name": "splat-ecs/lib/systems/box-collider",
+   "name": "splat-ecs/lib/systems/simulation/box-collider",
    "scenes": "all"
   },
   {
@@ -55,15 +55,15 @@
  ],
  "renderer": [
   {
-   "name": "splat-ecs/lib/systems/apply-shake",
+   "name": "splat-ecs/lib/systems/renderer/apply-shake",
    "scenes": "all"
   },
   {
-   "name": "splat-ecs/lib/systems/clear-screen",
+   "name": "splat-ecs/lib/systems/renderer/clear-screen",
    "scenes": "all"
   },
   {
-   "name": "splat-ecs/lib/systems/viewport-move-to-camera",
+   "name": "splat-ecs/lib/systems/renderer/viewport-move-to-camera",
    "scenes": "all"
   },
   {
@@ -71,23 +71,29 @@
    "scenes": "all"
   },
   {
-   "name": "splat-ecs/lib/systems/draw-image",
+   "name": "./systems/renderer/render-loading-bar",
+   "scenes": [
+     "loading"
+   ]
+  },
+  {
+   "name": "splat-ecs/lib/systems/renderer/draw-image",
    "scenes": "all"
   },
   {
-   "name": "splat-ecs/lib/systems/draw-rectangles",
+   "name": "splat-ecs/lib/systems/renderer/draw-rectangles",
    "scenes": "all"
   },
   {
-   "name": "splat-ecs/lib/systems/viewport-reset",
+   "name": "splat-ecs/lib/systems/renderer/viewport-reset",
    "scenes": "all"
   },
   {
-   "name": "splat-ecs/lib/systems/draw-frame-rate",
+   "name": "splat-ecs/lib/systems/renderer/draw-frame-rate",
    "scenes": "all"
   },
   {
-   "name": "splat-ecs/lib/systems/revert-shake",
+   "name": "splat-ecs/lib/systems/renderer/revert-shake",
    "scenes": "all"
   }
  ]
