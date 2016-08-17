@@ -1,7 +1,7 @@
 {
  "simulation": [
    {
-   "name": "splat-ecs/lib/systems/decay-life-span",
+   "name": "splat-ecs/lib/systems/simulation/decay-life-span",
    "scenes": "all"
   },
   {
