@@ -1,5 +1,9 @@
 {
  "simulation": [
+   {
+   "name": "splat-ecs/lib/systems/decay-life-span",
+   "scenes": "all"
+  },
   {
    "name": "splat-ecs/lib/systems/match-canvas-size",
    "scenes": "all"
