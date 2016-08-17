@@ -13,6 +13,10 @@
    "scenes": "all"
   },
   {
+   "name": "splat-ecs/lib/systems/apply-easing",
+   "scenes": "all"
+  },
+  {
    "name": "splat-ecs/lib/systems/set-virtual-buttons",
    "scenes": "all"
   },
