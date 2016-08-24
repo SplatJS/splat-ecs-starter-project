@@ -33,6 +33,10 @@
    "scenes": "all"
   },
   {
+   "name": "splat-ecs/lib/systems/simulation/apply-acceleration",
+   "scenes": "all"
+  },
+  {
    "name": "splat-ecs/lib/systems/simulation/apply-velocity",
    "scenes": "all"
   },
