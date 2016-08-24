@@ -48,6 +48,10 @@
    "name": "splat-ecs/lib/systems/simulation/box-collider",
    "scenes": "all"
   },
+   {
+   "name": "splat-ecs/lib/systems/simulation/constrain-position",
+   "scenes": "all"
+  },
   {
    "name": "./systems/simulation/sample-simulation-system",
    "scenes": "all"
