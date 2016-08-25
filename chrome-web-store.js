@@ -87,14 +87,11 @@ var chromeWebStoreManifest = {
     // "webview": {""}
 };
 
-var backgroundJsCode = "";
-/*
-chrome.app.runtime.onLaunched.addListener(function() {
-  chrome.app.window.create('index.html', {
-    "bounds": packageJson.gameBounds.width
-  });
-});
-*/
+var backgroundJsCode = "chrome.app.runtime.onLaunched.addListener(function() {"
++"  chrome.app.window.create('index.html', {"
++"    'bounds': " + JSON.stringify(packageJson.gameBounds)
++"  });"
++"});";
 
 ncp("build/html", "build/chrome-web-store", function(err) {
   if (err) {
