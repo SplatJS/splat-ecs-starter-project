@@ -2,6 +2,11 @@
   "name": "splat-ecs-starter-project",
   "version": "0.0.0",
   "description": "A Sample game",
+  "gameBounds": {
+    "width": 1920,
+    "height": 1080
+  },
+  "offlineEnabled": true,
   "private": true,
   "main": "src/game.js",
   "scripts": {
