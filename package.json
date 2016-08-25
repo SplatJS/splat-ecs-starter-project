@@ -49,6 +49,7 @@
     "webpack-dev-server": "^1.14.0"
   },
   "dependencies": {
-    "splat-ecs": "^7.1.0"
+    "splat-ecs": "^7.1.0",
+    "zip-folder": "^1.0.0"
   }
 }

@@ -1,6 +1,7 @@
 var fs = require("fs");
 var ncp = require("ncp").ncp;
 var process = require("process");
+var zipFolder = require('zip-folder');
 
 var packageJson = require("./package.json");
 
@@ -110,6 +111,15 @@ ncp("build/html", "build/chrome-web-store", function(err) {
         console.error(err);
         process.exit(3);
       }
+
+      zipFolder('build/chrome-web-store', 'build/chrome-web-store-build.zip', function(err) {
+          if(err) {
+              console.log('Error in zipping Chrome web store Build', err);
+          } else {
+              console.log('Chrome Web Store Build ready. build/chrome-web-store-build.zip');
+          }
+      });
+
     });
 
   });
