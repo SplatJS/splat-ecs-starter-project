@@ -24,10 +24,10 @@ var chromeWebStoreManifest = {
     //"default_locale": "en",
     "description": packageJson.description,
     // "icons" paths to png icons 128, 48, and 16 recommended at minimum. More info: https://developer.chrome.com/apps/manifest/icons
-    "icons": {""},
+    "icons": {},
 
     // ----------------- Optional -----------------
-    "author": packageJson.author
+    "author": packageJson.author,
 
     // More information on optional features can be found here: https://developer.chrome.com/apps/manifest
     // "automation": "",
@@ -58,7 +58,7 @@ var chromeWebStoreManifest = {
     // "nacl_modules": [""],
     // "oauth2": "",
     // "offline_enabled" Let's users know that game works without internet connection with a lightning bolt icon in the store. Mark false if you have ads or any online features! More info: https://developer.chrome.com/apps/manifest/offline_enabled
-    "offline_enabled": packageJson.offlineEnabled,
+    "offline_enabled": packageJson.offlineEnabled
     // "optional_permissions": ["tabs"],
     // "permissions": ["tabs"],
     // "platforms": "",
@@ -102,13 +102,13 @@ ncp("build/html", "build/chrome-web-store", function(err) {
     process.exit(1);
   }
 
-  fs.writeFile("background.js", backgroundJsCode, function(err) {
+  fs.writeFile("build/chrome-web-store/background.js", backgroundJsCode, function(err) {
     if (err) {
       console.error(err);
       process.exit(2);
     }
 
-    fs.writeFile("manifest.json", JSON.stringify(chromeWebStoreManifest), function(err) {
+    fs.writeFile("build/chrome-web-store/manifest.json", JSON.stringify(chromeWebStoreManifest), function(err) {
       if (err) {
         console.error(err);
         process.exit(3);
