@@ -10,6 +10,9 @@ var soundRegExp = new RegExp(soundPath + ".*\.(mp3|ogg|wav)$", "i");
 var imagePath = pathForRegexp("src/images");
 var imageRegExp = new RegExp(imagePath + ".*\.(jpe?g|png|gif|svg)$", "i");
 
+var iconPath = pathForRegexp("src/icons");
+var iconRegExp = new RegExp(iconPath + ".*\.(jpe?g|png|gif|svg)$", "i");
+
 var fontPath = pathForRegexp("src/fonts");
 var fontRegExp = new RegExp(fontPath + ".*\.(eot|svg|ttf|woff2?)$", "i");
 
@@ -43,6 +46,13 @@ module.exports = {
       },
       {
         test: imageRegExp,
+        loaders: [
+          "file?hash=sha512&digest=hex&name=[path][name].[ext]&context=src"
+          //"image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false"
+        ]
+      },
+      {
+        test: iconRegExp,
         loaders: [
           "file?hash=sha512&digest=hex&name=[path][name].[ext]&context=src"
           //"image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false"

@@ -24,7 +24,7 @@ var chromeWebStoreManifest = {
     //"default_locale": "en",
     "description": packageJson.description,
     // "icons" paths to png icons 128, 48, and 16 recommended at minimum. More info: https://developer.chrome.com/apps/manifest/icons
-    "icons": {},
+    "icons": packageJson.icons,
 
     // ----------------- Optional -----------------
     "author": packageJson.author,
