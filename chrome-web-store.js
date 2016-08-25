@@ -89,7 +89,7 @@ var chromeWebStoreManifest = {
 
 var backgroundJsCode = "chrome.app.runtime.onLaunched.addListener(function() {"
 +"  chrome.app.window.create('index.html', {"
-+"    'bounds': " + JSON.stringify(packageJson.gameBounds)
++"    'bounds': " + JSON.stringify(packageJson.gameBounds, null, 2)
 +"  });"
 +"});";
 
@@ -105,7 +105,7 @@ ncp("build/html", "build/chrome-web-store", function(err) {
       process.exit(2);
     }
 
-    fs.writeFile("build/chrome-web-store/manifest.json", JSON.stringify(chromeWebStoreManifest), function(err) {
+    fs.writeFile("build/chrome-web-store/manifest.json", JSON.stringify(chromeWebStoreManifest, null, 2), function(err) {
       if (err) {
         console.error(err);
         process.exit(3);
