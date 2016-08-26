@@ -2,10 +2,11 @@
   "name": "splat-ecs-starter-project",
   "version": "0.0.0",
   "description": "A Sample game",
+  "metaRobots": "",
   "private": true,
   "main": "src/game.js",
   "scripts": {
-    "build": "webpack",
+    "build": "webpack && node meta.js",
     "clean": "rimraf build",
     "electron": "webpack && node electron.js",
     "lint": "eslint .",
