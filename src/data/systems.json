@@ -25,6 +25,10 @@
    "scenes": "all"
   },
   {
+   "name": "splat-ecs/lib/systems/simulation/follow-mouse",
+   "scenes": "all"
+  },
+  {
    "name": "splat-ecs/lib/systems/simulation/control-player",
    "scenes": "all"
   },
@@ -72,6 +76,10 @@
   },
   {
    "name": "splat-ecs/lib/systems/renderer/viewport-move-to-camera",
+   "scenes": "all"
+  },
+  {
+   "name": "splat-ecs/lib/systems/renderer/background-color",
    "scenes": "all"
   },
   {
