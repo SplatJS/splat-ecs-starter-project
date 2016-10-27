@@ -8,6 +8,7 @@
     "build": "webpack",
     "clean": "rimraf build cordova",
     "electron": "webpack && node electron.js",
+    "cordova": "npm run clean && node cordova.js",
     "lint": "eslint .",
     "start": "webpack-dev-server --hot --inline --content-base build/html --host 0.0.0.0 --port 4000",
     "watch": "webpack --watch"
@@ -43,8 +44,12 @@
   "appMetadata":{
     "appName": "SplatJS Starter",
     "bundleId": "com.splatjs.splatEcsStarterProject",
-    "iconsFolder": "src/resources/icons",
-    "splashFolder": "src/resources/splash",
-    "platforms": [ "android", "ios" ]    
+    "appImages": [{
+      "android": {
+        "icons":"src/res/android/icons",
+        "splash":"src/res/android/splash"
+      }
+    }],
+    "platforms": [ "android" ]    
   }
 }
