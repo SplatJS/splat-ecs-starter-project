@@ -1,9 +1,14 @@
 #!/bin/sh
-cordova create cordova com.splatjs.splatEcsStarterProject
-cd cordova
-cordova platform add android --save
+if [ -e cordova-project ]
+then
+  echo "### Removing Previous Cordova Build"
+  rm -rf cordova-project
+fi
+./node_modules/cordova/bin/cordova create cordova-project com.splatjs.splatEcsStarterProject
+cd cordova-project
+../node_modules/cordova/bin/cordova platform add android --save
 cd ..
 npm run build
-cd cordova
+cd cordova-project
 cp -R ../build/html/* www
-cordova build
+../node_modules/cordova/bin/cordova build
