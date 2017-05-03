@@ -6,8 +6,9 @@
   "main": "src/game.js",
   "scripts": {
     "build": "webpack",
-    "clean": "rimraf build",
+    "clean": "rimraf build cordova",
     "electron": "webpack && node electron.js",
+    "cordova": "npm run clean && node cordova.js",
     "lint": "eslint .",
     "start": "webpack-dev-server --hot --inline --content-base build/html --host 0.0.0.0 --port 4000",
     "watch": "webpack --watch"
@@ -39,5 +40,16 @@
   },
   "dependencies": {
     "splat-ecs": "^7.5.1"
+  },
+  "appMetadata":{
+    "appName": "SplatJS Starter",
+    "bundleId": "com.splatjs.splatEcsStarterProject",
+    "appImages": [{
+      "android": {
+        "icons":"src/res/android/icons",
+        "splash":"src/res/android/splash"
+      }
+    }],
+    "platforms": [ "android" ]
   }
 }
