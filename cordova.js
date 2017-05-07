@@ -1,8 +1,12 @@
 var executeCommand = require("child_process").exec;
+var fs = require("fs");
+var handlebars = require("handlebars");
+var parseAuthor = require("parse-author");
 var path = require("path");
 var ncp = require('ncp').ncp;
 
-var appMetadata = require("./package.json").appMetadata;
+var packageJson = require("./package.json");
+var appMetadata = packageJson.appMetadata;
 
 var outDir = "cordova";
 var cordovaExecutablePath = path.resolve(__dirname, "./node_modules/cordova/bin/cordova");
@@ -12,6 +16,8 @@ if (!appMetadata) {
 } else {
   createCordovaProject(cordovaExecutablePath, appMetadata.bundleId, appMetadata.appName)
     .then((success) => console.log("Project Created"))
+    .then(generateConfigXml)
+    .then(copyIcons)
     .then(() => process.chdir(`./${outDir}`))
     .then(addPlatforms)
     .then(() => process.chdir("../"))
@@ -56,12 +62,20 @@ function addPlatforms() {
 }
 
 function copyBuild() {
+  return copyRecursive("./build/html", `./${outDir}/www`);
+}
+
+function copyIcons() {
+  return copyRecursive("./icons", `./${outDir}/res`);
+}
+
+function copyRecursive(src, dest) {
   return new Promise((resolve, reject) => {
-    ncp("./build/html", `./${outDir}/www`, (err) => {
-      if(err){
-        reject(err);
+    ncp(src, dest, err => {
+      if (err) {
+        return reject(err);
       }
-      resolve(true);
+      return resolve();
     });
   });
 }
@@ -71,4 +85,41 @@ function buildCordova() {
   var command = `${cordovaExecutablePath} build ${platforms}`;
   var failureMessage = `Failed to build platforms ${platforms}`;
   return runChildProcess(command, failureMessage);
+}
+
+function generateConfigXml(data) {
+  return readFile(path.join(__dirname, "config.xml"))
+    .then(data => {
+      var template = handlebars.compile(data);
+      var context = {
+        author: parseAuthor(packageJson.author),
+        description: packageJson.description
+      };
+      return template(context);
+    })
+    .then(data => {
+      return writeFile(path.join(__dirname, "cordova/config.xml"), data);
+    });
+}
+
+function readFile(path) {
+  return new Promise((resolve, reject) => {
+    fs.readFile(path, "utf8", (err, data) => {
+      if (err) {
+        return reject(err);
+      }
+      return resolve(data);
+    });
+  });
+}
+
+function writeFile(path, data) {
+  return new Promise((resolve, reject) => {
+    fs.writeFile(path, data, (err) => {
+      if (err) {
+        return reject(err);
+      }
+      return resolve();
+    });
+  });
 }
