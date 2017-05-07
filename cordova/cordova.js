@@ -5,25 +5,23 @@ var parseAuthor = require("parse-author");
 var path = require("path");
 var ncp = require('ncp').ncp;
 
-var packageJson = require("./package.json");
+var packageJson = require("../package.json");
 var appMetadata = packageJson.appMetadata;
 
-var outDir = "cordova";
-var cordovaExecutablePath = path.resolve(__dirname, "./node_modules/cordova/bin/cordova");
+var outDir = path.resolve(__dirname, "../build/cordova");
+var cordovaExecutablePath = path.resolve(__dirname, "../node_modules/cordova/bin/cordova");
 
 if (!appMetadata) {
   console.error("Your package.json does not have a properly formatted 'appMetadata' property. Unable to package cordova app(s)");
 } else {
-  createCordovaProject(cordovaExecutablePath, appMetadata.bundleId, appMetadata.appName)
-    .then((success) => console.log("Project Created"))
+  runChildProcess("npm run build")
+    .then(() => createCordovaProject(cordovaExecutablePath, appMetadata.bundleId, appMetadata.appName))
+    .then(() => console.log("Project Created"))
     .then(generateConfigXml)
-    .then(copyIcons)
-    .then(() => process.chdir(`./${outDir}`))
-    .then(addPlatforms)
-    .then(() => process.chdir("../"))
-    .then(() => runChildProcess("npm run build"))
     .then(copyBuild)
-    .then(() => process.chdir(`${outDir}`))
+    .then(copyIcons)
+    .then(() => process.chdir(outDir))
+    .then(addPlatforms)
     .then(buildCordova)
     .catch((err) => console.error(err));
 }
@@ -62,11 +60,11 @@ function addPlatforms() {
 }
 
 function copyBuild() {
-  return copyRecursive("./build/html", `./${outDir}/www`);
+  return copyRecursive(path.join(__dirname, "../build/html"), path.join(outDir, "www"));
 }
 
 function copyIcons() {
-  return copyRecursive("./icons", `./${outDir}/res`);
+  return copyRecursive(path.join(__dirname, "../icons"), path.join(outDir, "res"));
 }
 
 function copyRecursive(src, dest) {
@@ -98,7 +96,7 @@ function generateConfigXml(data) {
       return template(context);
     })
     .then(data => {
-      return writeFile(path.join(__dirname, "cordova/config.xml"), data);
+      return writeFile(path.join(outDir, "config.xml"), data);
     });
 }
 
