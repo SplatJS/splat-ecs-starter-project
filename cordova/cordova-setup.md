@@ -22,4 +22,41 @@ add `platform-tools` to $PATH
 install android studio
 ln -s ~/packages/android-studio/plugins/android/lib/templates tools/
 
-chmod a+x tool s/templates/gradle/wrapper/gradlew
+chmod a+x tools/templates/gradle/wrapper/gradlew
+
+
+
+
+# OSX
+
+Install Android Studio
+
+Set ANDROID_HOME to
+/Users/$USER/Library/Android/sdk
+
+Add
+/Users/$USER/Library/Android/sdk/tools/bin
+/Users/$USER/Library/Android/sdk/platform-tools
+to $PATH
+
+ln -s /Applications/Android Studio.app/Contents/plugins/android/lib/templates tools/
+
+
+http://stackoverflow.com/questions/39501020/code-sign-error-on-xcode-8-and-ios-10-cordova-project
+
+Get team id
+Make build.json
+cordova build --buildConfig=build.json ios
+
+open xcode, change device to actual device
+click "register now" button under "signing"
+
+cordova run --buildConfig=build.json ios --device
+
+
+need
+1. apple developer account
+2. app id / bundle id
+3. provisioning profile
+4. signing certificate (production / development)
+

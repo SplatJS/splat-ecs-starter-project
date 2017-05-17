@@ -80,7 +80,7 @@ function copyRecursive(src, dest) {
 
 function buildCordova() {
   var platforms = appMetadata.platforms.join(" ");
-  var command = `${cordovaExecutablePath} build ${platforms}`;
+  var command = `${cordovaExecutablePath} build --buildConfig=../build.json ${platforms}`;
   var failureMessage = `Failed to build platforms ${platforms}`;
   return runChildProcess(command, failureMessage);
 }

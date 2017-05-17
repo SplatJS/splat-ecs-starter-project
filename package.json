@@ -9,7 +9,8 @@
     "clean": "rimraf build",
     "electron": "webpack && node electron.js",
     "cordova": "npm run clean && node cordova/cordova.js",
-    "cordova-run": "cd build/cordova && cordova run android --device",
+    "cordova-run-android": "cd build/cordova && cordova run android --device",
+    "cordova-run-ios": "cd build/cordova && cordova run ios --device",
     "lint": "eslint .",
     "start": "webpack-dev-server --hot --inline --content-base build/html --host 0.0.0.0 --port 4000",
     "watch": "webpack --watch"
@@ -48,7 +49,8 @@
     "appName": "SplatJS Starter",
     "bundleId": "com.splatjs.splatEcsStarterProject",
     "platforms": [
-      "android"
+      "android",
+      "ios"
     ]
   }
 }
